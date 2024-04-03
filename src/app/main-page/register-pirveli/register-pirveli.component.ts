@@ -36,6 +36,7 @@ export class RegisterPirveliComponent implements OnInit {
   }
   @ViewChild('passwordInput') passwordInput!: ElementRef<HTMLInputElement>;
   
+  
   togglePasswordVisibility(): void {
     const input = this.passwordInput.nativeElement;
     if (input.type === 'password') {
@@ -46,11 +47,25 @@ export class RegisterPirveliComponent implements OnInit {
   }
 
   submitForm() {
+    // Mark all form controls as touched before checking validity
+    this.markFormGroupTouched(this.myForm);
+
     if (this.myForm.valid) {
       console.log('Form submitted:', this.myForm.value);
       this.registerEvent.emit(this.myForm.value);
-    }else {
+    } else {
       console.log('Form is invalid');
     }
+  }
+
+  // Function to mark all form controls as touched
+  markFormGroupTouched(formGroup: FormGroup) {
+    Object.values(formGroup.controls).forEach(control => {
+      control.markAsTouched();
+
+      if (control instanceof FormGroup) {
+        this.markFormGroupTouched(control);
+      }
+    });
   }
 }

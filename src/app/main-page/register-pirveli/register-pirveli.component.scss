@@ -15,15 +15,19 @@ body {
   margin: 0 auto;
 }
 
-// .left_part .content {
-//   background-color: #1565d8e5;
-// }
+#tick {
+  color: white;
+  background-color: #08ad36;
+  border: 1px solid #08ad36;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 3.5px 4.5px;
+}
 
 .left_part {
   height: 100vh;
   background-color: #1565d8e5;
-  width: 58vw;
-  position: relative;
+  width: 57.75%; /* Use percentage for responsiveness */
   padding: 50px 25px;
 }
 
@@ -32,12 +36,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40vw;
+  width: 40%; /* Use percentage for responsiveness */
   height: 100vh;
-  background-image: url(/assets/office.png);
+  background-image: url("/assets/office.png");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  opacity: 5;
+  opacity: 0.8;
   z-index: -1;
 }
 

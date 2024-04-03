@@ -1,1 +1,86 @@
-<p>register-meore works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="left_part">
+        <div class="content">
+          <div class="logo">
+            <img src="/assets/logo.png" alt="" />
+            <p>Oasis.</p>
+          </div>
+          <div class="text">
+            <p id="brackets"><img src="/assets/brackets.png" alt="" /></p>
+            <p id="main_p">
+              The passage experienced a surge in popularity during the 1960s
+              when Letraset used it on their dry-transfer sheets, and again
+              during the 90s as desktop publishers bundled the text with their
+              software.
+            </p>
+            <p>Vincent Obi <span id="tick">&#10004;</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="right_side">
+          <div class="top_side">
+            <div class="back">
+              <a href="">&#60; <span id="back_text">Back</span></a>
+            </div>
+            <div class="steps">
+              <div class="step_number">
+                <p>Step 02/03</p>
+              </div>
+              <div class="step_info">
+                <p>Personal Info.</p>
+              </div>
+            </div>
+          </div>
+          <div class="main_register">
+            <h1>Complete Your Profile!</h1>
+            <p id="purpose">
+              For the purpose of industry regulation, your details are required.
+            </p>
+            <form>
+              <div class="phone">
+                <p>Phone number</p>
+                <input
+                  type="text"
+                  placeholder="555555555"
+                  formControlName="phone"
+                />
+              </div>
+              <div class="address">
+                <p>Your address</p>
+                <input
+                  type="text"
+                  placeholder="Please enter address"
+                  formControlName="address"
+                />
+              </div>
+              <div class="country">
+                <p>Country of residence</p>
+                <input
+                  type="text"
+                  placeholder="Please select"
+                  formControlName="country"
+                />
+              </div>
+              <div class="register">
+                <button type="submit">Save & Continue</button>
+              </div>
+              <div class="info">
+                <i class="fa fa-lock">&#xf023;</i>
+                <p id="info">Your Info is safely secured</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
