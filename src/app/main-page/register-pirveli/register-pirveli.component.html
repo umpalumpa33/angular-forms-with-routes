@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="left_part">
+        <div class="content">
+          <div class="logo">
+            <img src="/assets/logo.png" alt="" />
+            <p>Oasis.</p>
+          </div>
+          <div class="text">
+            <p id="brackets"><img src="/assets/brackets.png" alt="" /></p>
+            <p id="main_p">
+              The passage experienced a surge in popularity during the 1960s
+              when Letraset used it on their dry-transfer sheets, and again
+              during the 90s as desktop publishers bundled the text with their
+              software.
+            </p>
+            <p>Vincent Obi <span id="tick">&#10004;</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="right_side">
+          <div class="top_side">
+            <div class="back">
+              <a href="">&#60; <span id="back_text">Back</span></a>
+            </div>
+            <div class="steps">
+              <div class="step_number">
+                <p>Step 01/03</p>
+              </div>
+              <div class="step_info">
+                <p>Personal Info.</p>
+              </div>
+            </div>
+          </div>
+          <div class="main_register">
+            <h1>Register Individual Account!</h1>
+            <p id="purpose">
+              For the purpose of industry regulation, your details are required.
+            </p>
+            <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+              <div class="fullname">
+                <p>Your fullname*</p>
+                <input
+                  type="text"
+                  placeholder="Enter your name and surname"
+                  formControlName="name"
+                />
+                <p
+                  *ngIf="
+                    getFormControl('name')!.invalid &&
+                    getFormControl('name')!.touched
+                  "
+                  id="errors"
+                >
+                  Name is required
+                </p>
+              </div>
+              <div class="email">
+                <p>Email address*</p>
+                <input
+                  type="email"
+                  placeholder="Enter email address"
+                  formControlName="email"
+                />
+                <p
+                  *ngIf="
+                    getFormControl('email')!.invalid &&
+                    getFormControl('email')!.touched
+                  "
+                  id="errors"
+                >
+                  Invalid email address
+                </p>
+              </div>
+              <div class="password">
+                <p>Create password*</p>
+                <div class="password-input-container">
+                  <input
+                    #passwordInput
+                    type="password"
+                    placeholder="Enter new password"
+                    formControlName="password"
+                  />
+                  <p
+                    *ngIf="
+                      getFormControl('password')!.invalid &&
+                      getFormControl('password')!.touched
+                    "
+                    id="errors"
+                  >
+                    Invalid password!
+                  </p>
+                  <button
+                    id="show"
+                    type="button"
+                    (click)="togglePasswordVisibility()"
+                    [style.margin-top.vh]="
+                      myForm.get('password')?.invalid &&
+                      myForm.get('password')?.touched
+                        ? -8
+                        : -5
+                    "
+                  >
+                    Show
+                  </button>
+                </div>
+              </div>
+              <div
+                class="checkbox_div"
+                [style.margin-top.vh]="
+                  myForm.get('password')?.invalid &&
+                  myForm.get('password')?.touched
+                    ? 5
+                    : 2
+                "
+              >
+                <input
+                  type="checkbox"
+                  formControlName="checkbox"
+                  id="checkbox"
+                />
+                <p>I agree to terms & conditions</p>
+              </div>
+              <p
+                *ngIf="
+                  myForm.get('checkbox')!.invalid &&
+                  myForm.get('checkbox')!.touched
+                "
+                id="errors"
+              >
+                Checkbox must be checked
+              </p>
+              <div class="register">
+                <button type="submit">Register Account</button>
+              </div>
+              <div class="or">
+                <hr />
+                <p>Or</p>
+                <hr />
+              </div>
+              <div class="google">
+                <img src="/assets/google.png" alt="" />
+                <h4>Register with Google</h4>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
