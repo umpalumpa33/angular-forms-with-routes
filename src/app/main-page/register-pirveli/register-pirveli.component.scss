@@ -27,7 +27,7 @@ body {
 .left_part {
   height: 100vh;
   background-color: #1565d8e5;
-  width: 57.75%; /* Use percentage for responsiveness */
+  width: 57.75%;
   padding: 50px 25px;
 }
 
@@ -36,7 +36,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40%; /* Use percentage for responsiveness */
+  width: 40%;
   height: 100vh;
   background-image: url("/assets/office.png");
   background-size: cover;

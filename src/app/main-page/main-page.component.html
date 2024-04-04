@@ -25,6 +25,7 @@
             <img src="/assets/logo.png" alt="" />
             <p>Oasis.</p>
           </div>
+
           <div class="text">
             <p id="brackets"><img src="/assets/brackets.png" alt="" /></p>
             <p id="main_p">
@@ -33,7 +34,7 @@
               during the 90s as desktop publishers bundled the text with their
               software.
             </p>
-            <p>Vincent Obi &#10004;</p>
+            <p>Vincent Obi <span id="tick">&#10004;</span></p>
           </div>
         </div>
       </div>
@@ -53,6 +54,7 @@
               <div
                 class="individual"
                 routerLink="register-first"
+                routerLinkActive="active"
                 (click)="navigateToFirst()"
               >
                 <img src="/assets/Polygon1.png" id="polygon1" alt="" />
@@ -76,5 +78,4 @@
     </div>
   </body>
 </html>
-
-<!-- <router-outlet></router-outlet> -->
+<router-outlet></router-outlet>

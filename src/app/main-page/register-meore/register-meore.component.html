@@ -36,7 +36,7 @@
                 <p>Step 02/03</p>
               </div>
               <div class="step_info">
-                <p>Personal Info.</p>
+                <p>Residency Info.</p>
               </div>
             </div>
           </div>
@@ -47,12 +47,15 @@
             </p>
             <form [formGroup]="myForm">
               <div class="phone">
-                <p>Phone number</p>
+                <p id="phone_p">Phone number</p>
                 <ng-select
                   [items]="countryCodes"
-                  bindLabel="name"
-                  bindValue="code"
-                  placeholder="Select Country Code"
+                  bindLabel="code"
+                  [placeholder]="placeholder"
+                  id="ng-select"
+                  [clearable]="true"
+                  [clearOnBackspace]="true"
+                  (change)="onCountryCodeChange($event)"
                 ></ng-select>
                 <input
                   type="text"
@@ -105,7 +108,7 @@
                 </p>
               </div>
               <div class="register">
-                <button type="submit" (click)="markFormGroupTouched(myForm)">
+                <button type="button" (click)="submitForm()">
                   Save & Continue
                 </button>
               </div>

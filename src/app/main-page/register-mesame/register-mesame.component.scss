@@ -1,0 +1,274 @@
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  width: 88.3%;
+  margin: 0 auto;
+}
+
+#tick {
+  color: white;
+  background-color: #08ad36;
+  border: 1px solid #08ad36;
+  border-radius: 50%;
+  display: inline-block;
+  padding: 3.5px 4.5px;
+}
+
+.left_part {
+  height: 100vh;
+  background-color: #1565d8e5;
+  width: 57.75%; /* Use percentage for responsiveness */
+  padding: 50px 25px;
+}
+
+.left_part::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%; /* Use percentage for responsiveness */
+  height: 100vh;
+  background-image: url("/assets/office.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo p {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25vh;
+  text-align: left;
+  gap: 20px;
+}
+
+#main_p {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 38px;
+  text-align: left;
+}
+
+#errors {
+  font-size: 0.8rem;
+  color: red;
+}
+
+.text p {
+  color: #fff;
+  font-family: Inter;
+}
+
+.right_side {
+  display: flex;
+  flex-direction: column;
+  padding: 7vh 7vw 0vh 7vw;
+}
+
+.top_side {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20%;
+}
+
+.top_side a {
+  text-decoration: none;
+  color: #8692a6;
+}
+
+#back_text {
+  margin-left: 0.4vw;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.step_number p {
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #bdbdbd;
+  text-align: right;
+}
+
+.step_info p {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  color: #8692a6;
+}
+
+.main_register {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.main_register h1 {
+  font-family: Inter;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1vh;
+}
+
+#purpose {
+  font-family: Inter;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 28px;
+  color: #8692a6;
+  margin-bottom: 4vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+
+form input {
+  border-radius: 6px;
+  border: 1px solid #8692a6;
+  padding: 25px 30px;
+}
+
+form p {
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #696f79;
+}
+
+form input::placeholder {
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.password {
+  display: flex;
+  gap: 10px;
+}
+
+#show {
+  align-self: flex-end;
+  margin-right: 3vw;
+  margin-top: -4vh;
+}
+
+.password input {
+  flex: 1;
+  border-radius: 6px;
+  border: 1px solid #8692a6;
+  padding: 25px 30px;
+}
+
+.password button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px !important;
+  border: 2px solid #000;
+  border-radius: 4px !important;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #1565d8;
+}
+
+.register button {
+  margin-top: 5vh;
+  background-color: #1565d8;
+  border: 1px solid #1565d8;
+  border-radius: 6px;
+  color: white;
+  padding: 20px 0px;
+  font-family: Inter;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.register {
+  margin-top: 2vh;
+}
+
+.google:hover,
+.register button:hover {
+  cursor: pointer;
+}
+
+.phone input {
+  padding: 25px 30px;
+  overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#phone_p {
+  margin-bottom: 2.5vh;
+}
+
+#ng-select {
+  margin-bottom: -5.5vh;
+  margin-left: 3vw;
+  width: fit-content;
+}
+
+#info {
+  align-self: center;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-weight: 400;
+}

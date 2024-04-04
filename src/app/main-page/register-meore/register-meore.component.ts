@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormDataService } from '../formDataService';
 
 @Component({
   selector: 'app-register-meore',
@@ -9,17 +11,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterMeoreComponent implements OnInit {
 
   myForm!: FormGroup;
-
-  constructor(private fb: FormBuilder) { }
-
-  @Output() registerEvent = new EventEmitter<any>();
-  countryCodes = [
-    { code: '+1', name: 'United States' },
-    { code: '+44', name: 'United Kingdom' },
-    // Add more country codes as needed
-  ];
-  selectedCountryCode!: string;
-
   ngOnInit(): void {
     this.myForm = this.fb.group({
       phone: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
@@ -28,30 +19,42 @@ export class RegisterMeoreComponent implements OnInit {
     });
   }
 
+  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) { }
+  @Output() formData = new EventEmitter<any>();
+  @Output() registerEvent = new EventEmitter<any>();
+  @Output() formSubmitted = new EventEmitter<any>();
+  countryCodes = [
+    { code: '+1'},
+    { code: '+44'},
+    { code: '+995'},
+    { code: '+123'}
+  ];
+  placeholder: string = this.countryCodes[0].code;
+  selectedCountryCode!: string;
+  onCountryCodeChange(event: any) {
+    const countryCode = event.code;
+    this.placeholder = countryCode.substring(0, 6);
+  }
+
+  
+
   getFormControl(name: string) {
     return this.myForm.get(name);
   }
 
   submitForm() {
-    this.markFormGroupTouched(this.myForm);
-
+    const formData = this.myForm.value;
     if (this.myForm.valid) {
       console.log('Form submitted:', this.myForm.value);
       this.registerEvent.emit(this.myForm.value);
+      this.router.navigate(['/register-mesame'])
+      this.formSubmitted.emit(this.myForm.value);
+      this.formDataService.addFormData(formData);
     } else {
       console.log('Form is invalid');
     }
   }
 
-  onSubmit() {
-    // Mark all form controls as touched
-    this.markFormGroupTouched(this.myForm);
-
-    if (this.myForm.valid) {
-      // Emit event with form values
-      this.registerEvent.emit(this.myForm.value);
-    }
-  }
 
   markFormGroupTouched(formGroup: FormGroup) {
     Object.values(formGroup.controls).forEach(control => {

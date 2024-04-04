@@ -6,14 +6,22 @@ import { RegisterMesameComponent } from './main-page/register-mesame/register-me
 import { MainPageComponent } from './main-page/main-page.component';
 
 const routes: Routes = [
+ 
   {
     path: 'main-page',
     component: MainPageComponent,
-    children: [
-      { path: 'register-first', component: RegisterPirveliComponent },
-      { path: 'register-second', component: RegisterMeoreComponent },
-      { path: 'register-third', component: RegisterMesameComponent },
-    ]
+  },
+  {
+    path: 'register-pirveli',
+    component: RegisterPirveliComponent
+  },
+  {
+    path: 'register-meore',
+    component: RegisterMeoreComponent
+  },
+  {
+    path: 'register-mesame',
+    component: RegisterMesameComponent
   },
   { 
     path: '', 

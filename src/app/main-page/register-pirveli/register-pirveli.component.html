@@ -139,7 +139,13 @@
                 Checkbox must be checked
               </p>
               <div class="register">
-                <button type="submit">Register Account</button>
+                <button
+                  type="button"
+                  [disabled]="!myForm.valid"
+                  (click)="submitForm()"
+                >
+                  Register Account
+                </button>
               </div>
               <div class="or">
                 <hr />

@@ -1,1 +1,82 @@
-<p>register-mesame works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="flex">
+      <div class="left_part">
+        <div class="content">
+          <div class="logo">
+            <img src="/assets/logo.png" alt="" />
+            <p>Oasis.</p>
+          </div>
+          <div class="text">
+            <p id="brackets"><img src="/assets/brackets.png" alt="" /></p>
+            <p id="main_p">
+              The passage experienced a surge in popularity during the 1960s
+              when Letraset used it on their dry-transfer sheets, and again
+              during the 90s as desktop publishers bundled the text with their
+              software.
+            </p>
+            <p>Vincent Obi <span id="tick">&#10004;</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="right_side">
+          <div class="top_side">
+            <div class="back">
+              <a href="">&#60; <span id="back_text">Back</span></a>
+            </div>
+            <div class="steps">
+              <div class="step_number">
+                <p>Step 03/03</p>
+              </div>
+              <div class="step_info">
+                <p>Bank Verification</p>
+              </div>
+            </div>
+          </div>
+          <div class="main_register">
+            <h1>Complete Your Profile!</h1>
+            <p id="purpose">
+              For the purpose of industry regulation, your details are required.
+            </p>
+            <form [formGroup]="myForm">
+              <div class="phone">
+                <p id="phone_p">Bank verification number (BVN)</p>
+
+                <input
+                  type="number"
+                  placeholder="123456789012"
+                  formControlName="bank"
+                />
+                <p
+                  *ngIf="
+                    getFormControl('bank')!.invalid &&
+                    getFormControl('bank')!.touched
+                  "
+                  id="errors"
+                >
+                  Number is required and needs to be 12 digits long
+                </p>
+              </div>
+
+              <div class="register">
+                <button type="button" (click)="submitForm()">
+                  Save & Continue
+                </button>
+              </div>
+              <div class="info">
+                <p id="info">Your Info is safely secured</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

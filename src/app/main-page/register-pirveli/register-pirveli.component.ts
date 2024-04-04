@@ -1,6 +1,9 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { passwordPatternValidator } from './passwordvalidator';
+import { FormDataService } from '../formDataService';
+
 
 @Component({
   selector: 'app-register-pirveli',
@@ -11,9 +14,10 @@ export class RegisterPirveliComponent implements OnInit {
 
   myForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router, private formDataService: FormDataService) { }
 
   @Output() registerEvent = new EventEmitter<any>();
+  @Output() formSubmitted = new EventEmitter<any>();
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -48,21 +52,24 @@ export class RegisterPirveliComponent implements OnInit {
 
   submitForm() {
     this.markFormGroupTouched(this.myForm);
+    const formData = this.myForm.value;
 
     if (this.myForm.valid) {
       console.log('Form submitted:', this.myForm.value);
       this.registerEvent.emit(this.myForm.value);
+      this.router.navigate(['/register-meore'])
+      this.formSubmitted.emit(this.myForm.value);
+      this.formDataService.addFormData(formData);
     } else {
       console.log('Form is invalid');
     }
   }
 
+
   onSubmit() {
-    // Mark all form controls as touched
     this.markFormGroupTouched(this.myForm);
 
     if (this.myForm.valid) {
-      // Emit event with form values
       this.registerEvent.emit(this.myForm.value);
     }
   }
